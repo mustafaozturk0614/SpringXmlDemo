@@ -7,10 +7,15 @@ public class CustomerService {
 //    MessaggeCustomerRepository customerRepository;
     ICustomerRepository iCustomerRepository;
 
+
     public CustomerService(ICustomerRepository iCustomerRepository) {
 
         this.iCustomerRepository = iCustomerRepository;
 
+
+    }
+
+    public CustomerService() {
     }
 
     public void sendNotification(){

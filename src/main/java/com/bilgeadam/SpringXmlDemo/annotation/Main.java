@@ -1,5 +1,7 @@
-package com.bilgeadam.SpringXmlDemo.firstExample;
+package com.bilgeadam.SpringXmlDemo.annotation;
 
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 1kısım
@@ -22,16 +24,25 @@ public class Main {
 
 
     public static void main(String[] args) {
-        // 1.kısım
-//        CustomerService customerService=new CustomerService();
-//        customerService.sendMessage();
-//        customerService.sendMessage2(2);
 
-        //2 kısım
-           ICustomerRepository iCustomerRepository=new MailCustomerRepository();
-           CustomerService customerService=new CustomerService(iCustomerRepository);
-           CustomerService customerService2=new CustomerService(new MessaggeCustomerRepository());
-           customerService2.sendNotification();
+        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext(
+                "applicationContext2.xml");
+
+//        MysqlService mysqlService=new MysqlService
+//                (context.getBean("database",IDatabaseRepository.class));
+//
+//        mysqlService.logToDatabase();
+
+//        CustomerService customerService=new CustomerService
+//                ( context.getBean("notification",ICustomerRepository.class));
+//            customerService.sendNotification();
+
+         CustomerService customerService1=context.getBean(CustomerService.class);
+            customerService1.sendNotification();
+
+
+
+
     }
 
 
